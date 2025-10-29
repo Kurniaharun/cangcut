@@ -1,0 +1,25 @@
+{
+  "name": "CapCut Maker",
+  "description": "Web-based CapCut account creator with modern UI",
+  "repository": "https://github.com/Gugun09/capcut-bot",
+  "keywords": ["nodejs", "puppeteer", "automation", "capcut"],
+  "buildpacks": [
+    {
+      "url": "https://github.com/jontewks/puppeteer-heroku-buildpack"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "env": {
+    "PUPPETEER_SKIP_CHROMIUM_DOWNLOAD": {
+      "description": "Skip Chromium download, use buildpack version",
+      "value": "true"
+    },
+    "PUPPETEER_EXECUTABLE_PATH": {
+      "description": "Path to Chromium installed by buildpack",
+      "value": "/app/.apt/usr/bin/google-chrome-stable"
+    }
+  }
+}
+

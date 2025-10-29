@@ -1,0 +1,27 @@
+{
+  "name": "capcut-bot",
+  "author": {
+    "name": "Nanda Gunawan",
+    "email": "admin@countryssh.com",
+    "url": "https://countryssh.com"
+  },
+  "version": "1.0.0",
+  "description": "Bot untuk membuat akun CapCut otomatis menggunakan Puppeteer",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "debug": "node --inspect server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "puppeteer": "^24.4.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "user-agents": "^1.1.480"
+  }
+}
