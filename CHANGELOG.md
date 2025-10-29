@@ -1,6 +1,57 @@
 # Changelog - CapCut Maker
 
-## Update Terbaru - Headless Mode & Linux Support
+## Update Terbaru - Heroku Chrome Fix
+
+### 🔧 Critical Fix untuk Heroku
+- **Fix Chrome not found error** di Heroku
+- **Update buildpack** ke official Heroku Google Chrome buildpack
+- **Downgrade Puppeteer** ke v23.0.0 (lebih stabil di Heroku)
+- **Auto-detect Chrome path** dengan multiple fallback
+- **.npmrc** untuk skip Chromium download
+- **HEROKU_FIX.md** - Panduan troubleshooting lengkap
+
+### 🔄 Configuration Changes
+- Buildpack: `heroku/heroku-buildpack-google-chrome` (official)
+- Puppeteer: v23.0.0 (dari v24.4.0)
+- skipDownload: true di package.json
+- findChrome() function dengan multiple paths
+- Additional Chrome args untuk stability
+
+### 📖 New Documentation
+- HEROKU_FIX.md - Step-by-step fix guide
+- Updated DEPLOY_HEROKU.md dengan buildpack baru
+- Updated deploy-heroku.sh script
+- Alternative buildpacks documented
+
+---
+
+## Update Sebelumnya - Heroku Deployment Support
+
+### ☁️ Heroku Deployment
+- **One-click deploy** dengan Deploy to Heroku button
+- **app.json** untuk konfigurasi Heroku otomatis
+- **Procfile** untuk web dyno configuration
+- **Buildpack** support untuk Puppeteer/Chromium
+- **Environment variables** untuk production
+- **Deploy script** otomatis (`deploy-heroku.sh`)
+- **Dokumentasi lengkap** deployment di `DEPLOY_HEROKU.md`
+
+### 🔧 Configuration Updates
+- PORT dari environment variable (support Heroku)
+- PUPPETEER_EXECUTABLE_PATH untuk custom Chromium path
+- Engine requirements di package.json
+- .slugignore untuk optimize slug size
+- .gitignore untuk keamanan
+
+### 📖 Dokumentasi
+- DEPLOY_HEROKU.md - Panduan deployment lengkap
+- Quick deploy script untuk Heroku CLI
+- Deploy button di README.md
+- Troubleshooting guide
+
+---
+
+## Update Sebelumnya - Headless Mode & Linux Support
 
 ### 🐧 Support Linux/Ubuntu
 - Menambahkan args Chromium yang kompatibel dengan Linux

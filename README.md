@@ -2,6 +2,8 @@
 
 Bot otomatis untuk membuat akun CapCut dengan tampilan web interface yang modern dan mudah digunakan.
 
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## ✨ Fitur
 
 - 🌐 **Web Interface Modern** - Tampilan yang keren dan user-friendly
@@ -14,7 +16,19 @@ Bot otomatis untuk membuat akun CapCut dengan tampilan web interface yang modern
 - 🔄 **Multiple Fallback** - Selector cadangan jika selector utama gagal
 - 🐧 **Cross Platform** - Support Windows & Linux/Ubuntu
 
-## 🚀 Instalasi
+## 🚀 Deployment
+
+### Deploy ke Heroku (One-Click)
+
+Klik button di atas atau ikuti panduan lengkap: [DEPLOY_HEROKU.md](DEPLOY_HEROKU.md)
+
+**⚠️ Chrome Error di Heroku?** → [HEROKU_FIX.md](HEROKU_FIX.md)
+
+### Deploy ke VPS/Server
+
+Lihat panduan: [QUICKSTART.md](QUICKSTART.md)
+
+## 📦 Instalasi Lokal
 
 ### Requirements
 - Node.js (versi 14 atau lebih baru)

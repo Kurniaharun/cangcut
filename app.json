@@ -5,7 +5,7 @@
   "keywords": ["nodejs", "puppeteer", "automation", "capcut"],
   "buildpacks": [
     {
-      "url": "https://github.com/jontewks/puppeteer-heroku-buildpack"
+      "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
     },
     {
       "url": "heroku/nodejs"
@@ -16,9 +16,13 @@
       "description": "Skip Chromium download, use buildpack version",
       "value": "true"
     },
-    "PUPPETEER_EXECUTABLE_PATH": {
-      "description": "Path to Chromium installed by buildpack",
-      "value": "/app/.apt/usr/bin/google-chrome-stable"
+    "PUPPETEER_SKIP_DOWNLOAD": {
+      "description": "Skip Chromium download",
+      "value": "true"
+    },
+    "NODE_ENV": {
+      "description": "Node environment",
+      "value": "production"
     }
   }
 }

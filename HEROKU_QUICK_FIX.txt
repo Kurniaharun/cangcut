@@ -1,0 +1,42 @@
+=====================================
+HEROKU CHROME FIX - QUICK COMMANDS
+=====================================
+
+Copy-paste commands ini satu per satu:
+
+# 1. Clear buildpacks lama
+heroku buildpacks:clear
+
+# 2. Tambah buildpack baru (URUTAN PENTING!)
+heroku buildpacks:add --index 1 https://github.com/heroku/heroku-buildpack-google-chrome
+heroku buildpacks:add --index 2 heroku/nodejs
+
+# 3. Set environment variables
+heroku config:set PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+heroku config:set PUPPETEER_SKIP_DOWNLOAD=true
+heroku config:set NODE_ENV=production
+
+# 4. Verify (cek hasilnya)
+heroku buildpacks
+heroku config
+
+# 5. Redeploy
+git add .
+git commit -m "Fix Chrome configuration"
+git push heroku main
+
+# 6. Restart app
+heroku restart
+
+# 7. Check logs
+heroku logs --tail
+
+=====================================
+DONE! Buka app dan test create account
+=====================================
+
+Jika ada app name, tambahkan --app APP_NAME di setiap command
+Contoh: heroku buildpacks:clear --app my-capcut-app
+
+Dokumentasi lengkap: HEROKU_FIX.md
+

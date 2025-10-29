@@ -9,20 +9,57 @@ puppeteer.use(StealthPlugin());
 // Default password
 const DEFAULT_PASSWORD = 'Masokbre123@';
 
+// Fungsi untuk mencari Chrome executable di Heroku
+const findChrome = () => {
+    const possiblePaths = [
+        process.env.PUPPETEER_EXECUTABLE_PATH,
+        '/app/.apt/usr/bin/google-chrome-stable',
+        '/app/.apt/usr/bin/google-chrome',
+        '/usr/bin/google-chrome-stable',
+        '/usr/bin/google-chrome',
+        '/usr/bin/chromium-browser',
+        '/usr/bin/chromium'
+    ];
+
+    for (const path of possiblePaths) {
+        if (path) {
+            try {
+                // Cek jika file exists (di production)
+                return path;
+            } catch (e) {
+                continue;
+            }
+        }
+    }
+    
+    // Return null jika tidak ada (akan gunakan bundled Chromium)
+    return null;
+};
+
 // Fungsi untuk membuat akun CapCut
 const createCapCutAccount = async (email, password, onOtpRequest, onProgress) => {
-    const browser = await puppeteer.launch({ 
+    const chromePath = findChrome();
+    
+    const launchOptions = {
         headless: true, // Headless mode (tanpa tampilan browser)
-        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || null,
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
             '--disable-dev-shm-usage',
             '--disable-accelerated-2d-canvas',
             '--disable-gpu',
-            '--window-size=1920,1080'
+            '--window-size=1920,1080',
+            '--disable-web-security',
+            '--disable-features=IsolateOrigins,site-per-process'
         ]
-    });
+    };
+
+    // Hanya set executablePath jika ditemukan
+    if (chromePath) {
+        launchOptions.executablePath = chromePath;
+    }
+
+    const browser = await puppeteer.launch(launchOptions);
     const page = await browser.newPage();
 
     // Gunakan User-Agent random
