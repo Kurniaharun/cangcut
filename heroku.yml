@@ -1,0 +1,7 @@
+build:
+  languages:
+    - nodejs
+
+run:
+  web: node server.js
+
